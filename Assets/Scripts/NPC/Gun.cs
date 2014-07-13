@@ -4,17 +4,15 @@ using System.Collections;
 public class Gun : MonoBehaviour {
 
 	/// <summary>
-	/// The prefab of the shot this gun will be firing
+	/// O prefab do tiro que sera disparado
 	/// </summary>
 	public Shot shot;
-	/// <summary>
-	/// The parent of the new instantiated shots
-	/// </summary>
 
 	/// <summary>
-	/// How much does the gun have to wait so it can shoot again
+	/// Quanto tempo o gun devera esperar para poder disparar de novo
 	/// </summary>
 	public float coolDown = .5f;
+	//Armazena o valor do timer
 	private float currentCoolDown;
 	
 	// Update is called once per frame
@@ -28,6 +26,9 @@ public class Gun : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Metodo para criar o tiro propriamente dito
+	/// </summary>
 	protected virtual void Shoot(){
 		Shot newShot = Instantiate(shot, transform.position, Quaternion.identity) as Shot;
 		newShot.transform.parent = this.transform.root;
